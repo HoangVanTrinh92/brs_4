@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+ 
   devise_for :users
 
-  root "home#index"
-  
+  root             'static_pages#home'
+  get 'help'    => 'static_pages#help'
+  get 'about'   => 'static_pages#about'
+  get 'contact' => 'static_pages#contact'
+  namespace :admin do
+    root 'users#index'
+    resources :books
+  end
+
 end
