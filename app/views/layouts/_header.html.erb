@@ -1,19 +1,64 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "BRS_4", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li style="color:red">Logged in as <strong><%= current_user.email %></strong></li>
-          <li><%= link_to 'Edit profile', edit_user_registration_path %></li> |
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path %></li> |
-          <li><%= link_to "Login", new_user_session_path %></li>
-        <% end %>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-      </ul>
-    </nav>
+<div id="header">
+  <div id="logo"><a href="/"><img src="../assets/images/logo.png" title="Your Store" alt="Your Store"></a></div>
+  <form action="http://template-preview.com/opencart/300111402/index.php?route=module/language" method="post" enctype="multipart/form-data">
+    <div id="language">Language        
+      <img src="../assets/image/gb.png" alt="English" title="English" onclick="$('input[name=\'language_code\']').attr('value', 'en'); $(this).parent().parent().submit();">
+      <img src="../assets/image/es.png" alt="Español" title="Español" onclick="$('input[name=\'language_code\']').attr('value', 'es'); $(this).parent().parent().submit();">
+      <img src="../assets/image/de.png" alt="German" title="German" onclick="$('input[name=\'language_code\']').attr('value', 'de'); $(this).parent().parent().submit();">
+      <input name="language_code" value="" type="hidden">
+      <input name="redirect" value="/" type="hidden">
+    </div>
+  </form>
+  <form action="http://template-preview.com/opencart/300111402/index.php?route=module/currency" method="post" enctype="multipart/form-data">
+    <div id="currency">Currency                
+      <a title="Euro" onclick="$('input[name=\'currency_code\']').attr('value', 'EUR'); $(this).parent().parent().submit();">€</a>
+      <a title="Pound Sterling" onclick="$('input[name=\'currency_code\']').attr('value', 'GBP'); $(this).parent().parent().submit();">£</a>
+      <a title="US Dollar"><b>$</b></a>
+      <input name="currency_code" value="" type="hidden">
+      <input name="redirect" value="/" type="hidden">
+    </div>
+  </form>
+  <div id="cart">
+  <div class="heading">
+    <h4>Shopping Cart</h4>
+    <a><span id="cart-total">0 item(s) - $0.00</span></a></div>
+  <div class="content">
+        <div class="empty">Your shopping cart is empty!</div>
+      </div>
+</div>  <div id="search">
+    <div class="button-search"></div>
+    <input name="search" placeholder="Search" type="text">
   </div>
-</header>
+  <div id="welcome" >
+    <div id="user_nav">    
+      <% if !user_signed_in? %>    
+        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>        
+      <% else %>
+        Signed in as <%= current_user.email %>. Not you?
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% end %>    
+    </div>
+  </div>
+  <div class="links"><a href="/">Home</a><a href="#">Wish List (0)</a><a href="#">My Account</a><a href="#">Shopping Cart</a><a href="#">Checkout</a></div>
+
+<div id="menu">
+  <ul style="display: block;">
+    <li><a href="#">AUDIOBOOKS</a>
+      </li>
+    <li><a href="#">e-books</a>
+      </li>
+    <li class="arrow_down"><a href="#">BOOKS</a>
+      <div style="">
+        <ul style="">
+          <li><a href="#">Barnes &amp; Noble Classics (0)</a></li>
+          <li><a href="#">Customer Favorites (0)</a></li>
+          <li><a href="#">Recommended (0)</a></li>
+        </ul>
+      </div>
+    </li>
+    <li><a href="#">TEXTBOOKS</a></li>
+    <li><a href="#">BUSINESS</a></li>
+    <li><a href="#">Magazines</a></li>      
+  </ul>
+</div>
+</div>
