@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag "application", media: "all",
-                                             "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application",
-                                             "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
+<head>
+  <title>brs_4</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-    <p class="navbar-text pull-right">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
+  <link href="http://template-preview.com/opencart/300111402/image/data/cart.png" rel="icon">
+  <script type="text/javascript" src="/assets/jquery-1.js"></script>
+  <script type="text/javascript" src="/assets/jquery-ui-1.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/jquery-ui-1.css">
+  <script type="text/javascript" src="/assets/common.js"></script>
 
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-  </body>
+  <script type="text/javascript" src="/assets/jcarousellite.js"></script>
+  <script type="text/javascript"> $(function() { $(".carousel").jCarouselLite({ btnNext: ".next", btnPrev: ".prev" }); }); </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*SOCIAL*/    
+      $('div.social a').animate({'opacity':'0.5'}, 50);
+      $('div.social a').hover( 
+      function(){
+        $(this).animate({'opacity':'1'}, 200);
+      }, function(){
+        $(this).animate({'opacity':'.5'}, 200);           
+      });
+        
+      $(window).load(function() { 
+        $('#menu ul').fadeIn(120);
+      })
+      
+      $('.box-product ul li > div, .product-grid > div, .box-product > div').hover( 
+      function(){
+        $(this).find('.open_content').fadeIn(300);
+      }, function(){
+        $(this).find('.open_content').fadeOut(200);
+      });
+
+      $('#menu ul li').has('div').addClass('arrow_down');
+      $('.box-category > ul > li').has('ul').addClass('cat_arrow_down');
+      $('.box-product > div:last').css({'margin-right':'0'});
+      $('body').has('.phone').addClass('homa');
+
+      $(window).load(function() { 
+        $('#content').wrapInner(document.createElement('span'));
+        $("#content > span > .breadcrumb + h1").insertBefore("#content > span");
+      })
+    });
+  </script> 
+  <%= render "layouts/shim" %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
 </html>
