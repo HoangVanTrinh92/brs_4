@@ -31,10 +31,10 @@
   </div>
   <div id="welcome" >
     <div id="user_nav">    
-      <% if !user_signed_in? %>    
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>        
+      <% if !user_signed_in? %>         
+        Welcome visitor you can <%= link_to "log in", new_user_session_path %> or <%= link_to "create an account", new_user_registration_path %>         
       <% else %>
-        Signed in as <%= current_user.email %>. Not you?
+        Welcome my friend <%= current_user.email %>.
         <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <% end %>    
     </div>
