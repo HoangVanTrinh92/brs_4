@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   devise_for :users
-  root "home#index"
+  root "static_pages#home"
   
   namespace :admin do
     root 'users#index'
