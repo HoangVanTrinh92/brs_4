@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :is_admin
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.normal.all.paginate page: params[:page]
   end
 
   def show
@@ -28,7 +28,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find params[:id]
     @user.destroy
     flash[:success] = "User deleted"
-    redirect_to admin_users_url
+    redirect_to admin_users_path
   end
 
   def edit

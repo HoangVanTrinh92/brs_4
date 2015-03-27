@@ -3,7 +3,7 @@ User.create!(email: "example@railstutorial.org",
              password_confirmation: "12345678",
              role: "admin")
 
-10.times do |n|
+50.times do |n|
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(email: email,
