@@ -20,7 +20,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'devise'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'mysql2'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
@@ -33,7 +33,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
-  gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor', '0.0.2' 
   gem 'unicorn',        '4.8.3'
 end
