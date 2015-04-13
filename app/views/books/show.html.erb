@@ -30,4 +30,14 @@
   <%= @book.picture %>
 </p>
 
+<div class="col-md-8">
+  <% if @book.reviews.any? %>
+    <h3>Reviews (<%= @book.reviews.count %>)</h3>
+      <%= render @reviews %>
+    <%= will_paginate @reviews %>
+  <% end %>
+</div>
+
+<%= render 'shared/review_form' %>
+
 <%= link_to 'Back', books_path %>

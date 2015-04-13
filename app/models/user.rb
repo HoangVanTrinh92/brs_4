@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :passive_relationships, class_name:  "Relationship",
     foreign_key: "followed_id", dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+
+  has_many :reviews,dependent: :destroy
 	
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)

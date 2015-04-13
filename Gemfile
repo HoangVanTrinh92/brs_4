@@ -20,6 +20,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'devise'
 
 group :development, :test do
+	gem 'sqlite3'
   gem 'mysql2'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'

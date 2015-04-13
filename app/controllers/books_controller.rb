@@ -5,6 +5,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
+    @reviews = @book.reviews.paginate(page: params[:page])
+   
   end
 
   private

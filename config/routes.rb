@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :books
+   resources :reviews, only: [:create, :destroy]
+
 end
