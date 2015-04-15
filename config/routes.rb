@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   
   namespace :admin do    
     root 'users#index'
-    resources :books
+    resources :books do
+    	resources :reviews
+    end
     resources :users
   end
-  resources :books
+  resources :books do
+  	resources :reviews
+  end
 end
