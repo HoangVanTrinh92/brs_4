@@ -2017,3 +2017,9 @@ div.phone_bottom p {
   font-size:55px;
   margin-top:25px
 }
+
+.books {
+  margin: 100px 10px 100px 10px;
+  background-color: none;
+  height: auto;
+}
