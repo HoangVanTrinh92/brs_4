@@ -1,19 +1,19 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <div id="header">
-  <div id="logo"><a href="/"><img src="../assets/images/logo.png" title="Your Store" alt="Your Store"></a></div>
-  <form action="http://template-preview.com/opencart/300111402/index.php?route=module/language" method="post" enctype="multipart/form-data">
-    <div id="language">Language        
-      <img src="../assets/image/gb.png" alt="English" title="English" onclick="$('input[name=\'language_code\']').attr('value', 'en'); $(this).parent().parent().submit();">
-      <img src="../assets/image/es.png" alt="Español" title="Español" onclick="$('input[name=\'language_code\']').attr('value', 'es'); $(this).parent().parent().submit();">
-      <img src="../assets/image/de.png" alt="German" title="German" onclick="$('input[name=\'language_code\']').attr('value', 'de'); $(this).parent().parent().submit();">
+  <div id="logo"><a href="/"><%= image_tag("images/logo.png") %></a></div>
+  <form method="post" enctype="multipart/form-data">
+    <div id="language">Language                  
+      <%= image_tag("image/gb.png") %>  
+      <%= image_tag("image/es.png") %>  
+      <%= image_tag("image/de.png") %>  
       <input name="language_code" value="" type="hidden">
       <input name="redirect" value="/" type="hidden">
     </div>
   </form>
-  <form action="http://template-preview.com/opencart/300111402/index.php?route=module/currency" method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data">
     <div id="currency">Currency                
-      <a title="Euro" onclick="$('input[name=\'currency_code\']').attr('value', 'EUR'); $(this).parent().parent().submit();">€</a>
-      <a title="Pound Sterling" onclick="$('input[name=\'currency_code\']').attr('value', 'GBP'); $(this).parent().parent().submit();">£</a>
+      <a title="Euro">€</a>
+      <a title="Pound Sterling">£</a>
       <a title="US Dollar"><b>$</b></a>
       <input name="currency_code" value="" type="hidden">
       <input name="redirect" value="/" type="hidden">
