@@ -43,7 +43,7 @@
   <div class="links">
     <a href="/">Home</a>
     <a href="#">Wish List (0)</a>
-    <a href="#">My Account</a>
+    <%= link_to "My Account", current_user %>
     <a href="#">Shopping Cart</a>
     <a><%= link_to "All Book", books_path %></a>
     <a><%= link_to "Manage Book", admin_books_path %></a>
