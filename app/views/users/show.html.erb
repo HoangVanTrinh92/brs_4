@@ -1,0 +1,28 @@
+<div class="bg_content"> 
+  <div id="column-left" style="background:none">
+    <div id="column-right" style="margin-bottom:0px">
+      <div class="box">
+        <div class="box-heading"><h2>Users</h2></div>
+        <div class="box-content">
+          <ul class="account_list">
+            <li><%= link_to "Profile", current_user %></li>                   
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <h1>User Profile</h1>
+    <span>  
+      <div class="breadcrumb">
+        <a href="#">Home</a>
+        » <a href="#">AUDIOBOOKS</a>
+      </div>
+      
+      <div>      
+        <h2>Email: <%= @user.email %></h2>
+      </div>
+    </span>
+  <div style="clear:both"></div>
+</div>
+</div><!--   END  bg_content  -->
