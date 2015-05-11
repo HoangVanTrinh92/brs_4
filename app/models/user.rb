@@ -16,6 +16,16 @@ class User < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
   
+  has_many :favourites, dependent: :destroy
+ 
+  def has_favourite? book
+    favourites.find_by_book_id book.id
+  end
+
+  def create_favourite book
+    favourites.create book_id: book.id
+  end
+
   def follow other_user
     active_relationships.create followed_id: other_user.id
   end
