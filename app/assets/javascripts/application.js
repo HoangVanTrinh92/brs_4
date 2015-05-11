@@ -16,5 +16,15 @@
 //= require bootstrap
 //= require_tree .
 
-function add_fields(link, association, content) {
-var new_id = new Date().getTime();
+function add_fields(link, name) {
+  var new_id = new Date().getTime();
+  var r = /\d+/g;
+  var m = r.exec(name);
+  var re = new RegExp(m, 'g');
+  $(link).parent().prev().append(name.replace(re,new_id));
+}
+
+function remove_fields(field) {
+  $(field).prev().val("true");
+  $(field).parent().hide();
+}

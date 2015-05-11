@@ -1,9 +1,35 @@
 <%= div_for review do %>
-  <strong><p class="review-user-email"><%= sanitize(review.user.email) %></p></strong>
-  <p class="review-content"><%= sanitize(review.content) %></p>
-  <span class="date">
-    <small><%= time_ago_in_words(review.created_at) %> ago</small>
-  </span>
-  </br>
-  <a>...........................................................................................................................................................</a>
+  <div class="content">
+    <div class="review-header">
+      <strong>
+        <p class="review-user-email"><%= sanitize(review.user.email) %>
+      </strong>
+          <span class="date">
+            <small><%= time_ago_in_words(review.created_at) %> ago</small>
+          </span>
+        </p>
+    </div>
+
+    <div class="review-text">
+      <p><%= sanitize(review.content) %></p>
+    </div>
+      
+    <div class="review-footer">
+      <div class="review-footer-actions">
+        <button class="comment-foo-act-but" type="button" >
+          Comment
+        </button>
+        <p>This review has <%= review.comments.count %> comment</p>
+      </div>
+
+      <div class="comment">
+        
+          <%= render 'comments/comment', review: review %>
+        <div>
+          <%= render 'comments/comment_form', review: review %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>...........................................................................................................................................................</p>
 <% end %>

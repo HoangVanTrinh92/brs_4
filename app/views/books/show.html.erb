@@ -31,16 +31,14 @@
   </p>
 
   <div class="reviews">
-    <h4 id="reviews-count">This book has <%= pluralize(@book.reviews.count, 'review') %></h4>
+    <h3 id="reviews-count">This book has <%= pluralize(@book.reviews.count, 'review') %></h3>
    
     <div>
-    <%= render 'reviews/review_form' %>
+      <%= render 'reviews/review_form' %>
+    </div>
+ 
+    <div id="reviews-list">
+      <%= render partial: @book.reload.reviews %>
     </div>
   </div>
- 
-  <div id="reviews-list">
-    
-    <%= render partial: @book.reload.reviews %>
-  </div>
-
 </div>

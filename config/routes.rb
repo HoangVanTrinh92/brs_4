@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     end
     resources :users
   end
+
   resources :books do
   	resources :reviews
+  end
+
+  resources :reviews do 
+    resources :comments
   end
 end
