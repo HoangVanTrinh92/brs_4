@@ -30,6 +30,18 @@
     <%= @book.category %>
   </p>
 
+  <h4 id="favourites-count">This book has <%= pluralize(@book.favourites.count, 'favourites') %></h4>
+
+  <% if current_user %>
+    <div id="favourite_form">
+    <% if current_user.has_favourite? @book %>
+      <%= render 'favourites/unfavourite' %>
+    <% else %>
+      <%= render 'favourites/favourite' %>
+    </div>
+    <% end %>
+  <% end %>
+
   <div class="reviews">
     <h3 id="reviews-count">This book has <%= pluralize(@book.reviews.count, 'review') %></h3>
    
