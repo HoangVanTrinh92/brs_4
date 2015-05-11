@@ -7,16 +7,18 @@ Rails.application.routes.draw do
   namespace :admin do    
     root 'users#index'
     resources :books do
-    	resources :reviews
+      resources :reviews
     end
     resources :users
   end
 
   resources :books do
-  	resources :reviews
+    resources :reviews
   end
 
   resources :reviews do 
     resources :comments
   end
+
+  resources :favourites, only: [:create, :destroy]
 end

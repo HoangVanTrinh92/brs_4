@@ -1,0 +1,2 @@
+$("#favourite_form").html("<%= escape_javascript(render('favourites/favourite')) %>")
+$('#favourites-count').html('This book has <%= escape_javascript(pluralize(@book.favourites.count, 'favourites')) %>');
