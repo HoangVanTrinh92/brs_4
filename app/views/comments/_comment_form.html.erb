@@ -1,0 +1,8 @@
+<%= form_for [review, review.comments.new], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: 'Insert content comment in here' %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <%= f.submit 'Post comment', class: 'btn btn-primary' %>
+  <div class="comment-error"></div>
+<% end %>

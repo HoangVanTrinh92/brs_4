@@ -13,9 +13,11 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
 
   has_many :reviews, dependent: :destroy
+
+  has_many :comments, dependent: :destroy
   
-  def follow(other_user)
-    active_relationships.create(followed_id: other_user.id)
+  def follow other_user
+    active_relationships.create followed_id: other_user.id
   end
 
   def unfollow(other_user)

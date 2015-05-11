@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415061605) do
+ActiveRecord::Schema.define(version: 20150422042758) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -25,27 +25,11 @@ ActiveRecord::Schema.define(version: 20150415061605) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "commentable_id",   limit: 4
-    t.string   "commentable_type", limit: 255
-    t.string   "title",            limit: 255
-    t.text     "body",             limit: 65535
-    t.string   "subject",          limit: 255
-    t.integer  "user_id",          limit: 4,     null: false
-    t.integer  "parent_id",        limit: 4
-    t.integer  "lft",              limit: 4
-    t.integer  "rgt",              limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "book_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.text     "content",    limit: 65535
+    t.string   "user_id",    limit: 255
+    t.string   "review_id",  limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "relationships", force: :cascade do |t|
