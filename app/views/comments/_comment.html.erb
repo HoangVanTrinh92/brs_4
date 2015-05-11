@@ -1,0 +1,12 @@
+<div id="comment-list-<%= review.id %>">
+  <% review.comments.each do |comment| %>
+    <strong><%= comment.user.email %></strong>
+    <span class="date">
+    <small><%= time_ago_in_words comment.created_at %> ago</small>
+    </span>
+    </br>
+    <%= comment.content %>
+    </br>
+    <p>........................................................................................................................................................</p>
+  <% end %>
+</div>
