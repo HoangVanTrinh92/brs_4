@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   
   has_many :favourites, dependent: :destroy
   has_many :books, through: :favourites
+
+  has_many :read_states, dependent: :destroy
  
   def has_favourite? book
     favourites.find_by_book_id book.id

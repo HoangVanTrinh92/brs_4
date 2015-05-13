@@ -1,0 +1,26 @@
+<div class="books">
+<h2> List books as reading of <%= @user.email %> </h2>
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Image</th>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <th>
+        <a><%= link_to book.title, book_path(book) %></a> &nbsp;
+      </th>
+      <th>
+        <a><%= link_to book.author, "#" %></a> &nbsp;
+      </th>
+      <th>
+        <%= image_tag book.picture if book.picture? %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

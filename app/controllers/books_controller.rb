@@ -5,6 +5,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find params[:id]
+    @readstate = ReadState.latest current_user.id, @book.id
+    @state = @readstate.first.state if @readstate.present?
   end
 
   private

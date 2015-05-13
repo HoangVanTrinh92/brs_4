@@ -1,0 +1,6 @@
+<%= form_for ReadState.new do |f| %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= hidden_field_tag :book_id, @book.id %>
+  <%= hidden_field_tag :state, message %>
+  <%= f.submit "Mark as " + message, class: "btn-primary form-control" %>
+<% end %>

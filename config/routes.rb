@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :favourites, only: [:index]
+    resources :read_states, only: [:index]
   end
   
   namespace :admin do    
@@ -23,5 +24,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :read_states
   resources :favourites, only: [:create, :destroy]
 end
