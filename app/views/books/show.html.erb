@@ -1,4 +1,3 @@
-
 <div class = "books">
   <table>
     <th>
@@ -33,6 +32,19 @@
       </p>
     </th>
   </table>
+
+<div>
+  <p>You are <%= label_tag @state %> this book</p>
+  <% if @state == "read" %>
+    <%= render partial: 'read_states/mark_read', locals: {message: "reading"} %>
+  <% elsif @state == "reading" %>
+    <%= render partial: 'read_states/mark_read', locals: {message: "read"} %>
+  <% else %>
+    <%= render partial: 'read_states/mark_read', locals: {message: "reading"} %>
+    <%= render partial: 'read_states/mark_read', locals: {message: "read"} %>
+  <% end %>
+</div>
+
   <h4 id="favourites-count">This book has <%= pluralize(@book.favourites.count, 'favourites') %></h4>
 
   <% if current_user %>
