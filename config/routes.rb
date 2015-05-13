@@ -2,7 +2,10 @@ Rails.application.routes.draw do
  
   devise_for :users
   root "static_pages#home"
-  resources :users
+  
+  resources :users do
+    resources :favourites, only: [:index]
+  end
   
   namespace :admin do    
     root 'users#index'

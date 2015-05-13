@@ -1,35 +1,38 @@
 
 <div class = "books">
+  <table>
+    <th>
+      <p>
+        <%= image_tag @book.picture if @book.picture? %>
+      </p>
+    </th>
+    <th>
+      <p>
+        <strong>Title:</strong>
+        <%= @book.title %>
+      </p>
 
-  <p>
-    <%= image_tag @book.picture if @book.picture? %>
-  </p>
+      <p>
+        <strong>Publish date:</strong>
+        <%= @book.publish_date %>
+      </p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @book.title %>
-  </p>
+      <p>
+        <strong>Author:</strong>
+        <%= @book.author %>
+      </p>
 
-  <p>
-    <strong>Publish date:</strong>
-    <%= @book.publish_date %>
-  </p>
+      <p>
+        <strong>Number page:</strong>
+        <%= @book.number_page %>
+      </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= @book.author %>
-  </p>
-
-  <p>
-    <strong>Number page:</strong>
-    <%= @book.number_page %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= @book.category %>
-  </p>
-
+      <p>
+        <strong>Category:</strong>
+        <%= @book.category %>
+      </p>
+    </th>
+  </table>
   <h4 id="favourites-count">This book has <%= pluralize(@book.favourites.count, 'favourites') %></h4>
 
   <% if current_user %>
