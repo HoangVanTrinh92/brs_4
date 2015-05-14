@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
- 
   devise_for :users
   root "static_pages#home"
   
@@ -26,4 +25,6 @@ Rails.application.routes.draw do
 
   resources :read_states
   resources :favourites, only: [:create, :destroy]
+
+  resources :requests, only:[:create, :new]
 end
