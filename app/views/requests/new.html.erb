@@ -1,0 +1,38 @@
+<div class="bg_content">
+  <div id="content">
+    <h1>Send Request</h1>
+    <span>  
+      <div class="content">     
+        <table class="form">   
+          <tbody>       
+            <%= form_for @request do |f| %>
+              <tr>
+                <div class="field">
+                  <td><span class="required">*</span> Book Name:</td>
+                  <td><%= f.text_field :book_name %></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="field">
+                  <td><span class="required">*</span> State:</td>
+                  <td><%= f.text_field :attr_state %></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="field">
+                  <td><span class="required">*</span> Book Link:</td>
+                  <td><%= f.text_field :book_link %></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="actions">
+                  <td><input type="submit" value="Send" class="button" name="commit" ></td>
+                </div>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </span>  
+  </div>
+</div><!--   END  bg_content  -->
