@@ -5,4 +5,6 @@ class Book < ActiveRecord::Base
   has_many :users , through: :favourites
 
   has_many :read_states, dependent: :destroy
+
+  validates :title, presence: true
 end
