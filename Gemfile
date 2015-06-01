@@ -32,6 +32,8 @@ group :test do
   gem 'guard-minitest',     '2.3.1'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers'
 end
 
 group :production do
